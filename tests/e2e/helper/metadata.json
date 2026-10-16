@@ -1,0 +1,6 @@
+{
+    "uuid": "e2e-helper@gnome-suspend-inhibitor-indicator.test",
+    "name": "Gnome Suspend Inhibitors Indicator e2e helper",
+    "description": "Test only. Enables Eval in a disposable shell and replaces Suspend with a counter.",
+    "shell-version": ["49", "50"]
+}

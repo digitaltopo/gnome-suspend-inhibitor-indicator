@@ -1,0 +1,40 @@
+.suspend-inhibitors-badge {
+    border-radius: 12px;
+    padding: 2px 8px;
+    color: #8a5d00;
+    background-color: rgba(229, 165, 10, 0.24);
+}
+.suspend-inhibitors-badge:hover,
+.suspend-inhibitors-badge:focus {
+    background-color: rgba(229, 165, 10, 0.38);
+}
+.suspend-inhibitors-badge-content {
+    spacing: 5px;
+}
+.suspend-inhibitors-badge-icon {
+    icon-size: 14px;
+}
+.suspend-inhibitors-scroll {
+    min-width: 350px;
+    max-width: 480px;
+    max-height: 420px;
+}
+.suspend-inhibitors-rows {
+    spacing: 12px;
+}
+.suspend-inhibitors-row {
+    spacing: 4px;
+}
+.suspend-inhibitors-app {
+    font-weight: bold;
+}
+.suspend-inhibitors-reason {
+    color: #303030;
+}
+.suspend-inhibitors-source {
+    color: #6a6a6a;
+    font-size: 0.9em;
+}
+.suspend-inhibitors-error {
+    color: #8a5d00;
+}

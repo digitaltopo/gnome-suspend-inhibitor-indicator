@@ -1,0 +1,44 @@
+name: Release
+
+on:
+    push:
+        tags: ['v*.*.*']
+
+permissions:
+    contents: write
+
+jobs:
+    release:
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v5
+
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
+
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+                  cache: pnpm
+
+            - name: Check the tag matches package.json
+              run: |
+                  version=$(node -p "require('./package.json').version")
+                  if [ "$GITHUB_REF_NAME" != "v$version" ]; then
+                      echo "::error::Tag $GITHUB_REF_NAME does not match package.json version $version"
+                      exit 1
+                  fi
+
+            # gnome-extensions (from gnome-shell) packs the zip, gettext compiles translations
+            - name: Install packing tools
+              run: sudo apt-get update && sudo apt-get install -y --no-install-recommends gnome-shell gettext
+
+            - run: pnpm install --frozen-lockfile
+            - run: pnpm run check
+            - run: pnpm run pack
+
+            - name: Create the GitHub release
+              env:
+                  GH_TOKEN: ${{ github.token }}
+              run: gh release create "$GITHUB_REF_NAME" build/*.shell-extension.zip --verify-tag --title "$GITHUB_REF_NAME" --generate-notes

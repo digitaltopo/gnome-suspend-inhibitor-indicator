@@ -1,0 +1,66 @@
+{
+    "name": "gnome-suspend-inhibitor-indicator",
+    "version": "0.0.1",
+    "description": "GNOME Shell extension that shows what's currently inhibiting system suspend via an indicator in the power menu",
+    "type": "module",
+    "private": true,
+    "license": "GPL-3.0-or-later",
+    "author": "Digital Topography Studios",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/digitaltopo/gnome-suspend-inhibitor-indicator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/digitaltopo/gnome-suspend-inhibitor-indicator/issues"
+    },
+    "homepage": "https://github.com/digitaltopo/gnome-suspend-inhibitor-indicator#readme",
+    "sideEffects": false,
+    "engines": {
+        "node": ">=24"
+    },
+    "scripts": {
+        "clean": "rm -rf dist build",
+        "build": "rm -rf dist && tsc -p tsconfig.build.json && cp src/*.css dist/ && node scripts/metadata.ts",
+        "pack": "node --run build && mkdir -p build && gnome-extensions pack dist --force --out-dir=build --extra-source=lib --extra-source=stylesheet-dark.css --extra-source=stylesheet-light.css --podir=../po",
+        "install-extension": "node --run pack && gnome-extensions install --force build/gnome-suspend-inhibitor-indicator@digitaltopo.github.io.shell-extension.zip",
+        "pot": "node --run build && xgettext --from-code=UTF-8 --language=JavaScript --keyword=_ --keyword=ngettext:1,2 --package-name=gnome-suspend-inhibitor-indicator --package-version=$(node -p \"require('./package.json').version\") --output=po/gnome-suspend-inhibitor-indicator@digitaltopo.github.io.pot dist/*.js dist/lib/*.js",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "lint": "eslint .",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "test": "node --test 'tests/unit/**/*.test.ts'",
+        "test:e2e": "node --run build && tsc -p tests/e2e/tsconfig.json && tests/e2e/run.sh",
+        "check": "node --run typecheck && node --run lint && node --run format:check && node --run test",
+        "preversion": "node --run check && node --run test:e2e"
+    },
+    "devDependencies": {
+        "@eslint/js": "10.0.1",
+        "@girs/gjs": "4.0.0-beta.40",
+        "@girs/gnome-shell": "49.1.0",
+        "@types/node": "24.19.2",
+        "eslint": "10.12.0",
+        "eslint-config-prettier": "10.1.8",
+        "globals": "17.13.0",
+        "prettier": "3.9.10",
+        "typescript": "6.0.3",
+        "typescript-eslint": "8.71.2"
+    },
+    "overrides": {
+        "@girs/gjs": "4.0.0-beta.40",
+        "@girs/gobject-2.0": "2.86.4-4.0.0-beta.40",
+        "@girs/glib-2.0": "2.86.4-4.0.0-beta.40",
+        "@girs/gio-2.0": "2.86.4-4.0.0-beta.40",
+        "@girs/gmodule-2.0": "2.0.0-4.0.0-beta.40",
+        "@girs/cairo-1.0": "1.0.0-4.0.0-beta.40"
+    },
+    "pnpm": {
+        "overrides": {
+            "@girs/gjs": "4.0.0-beta.40",
+            "@girs/gobject-2.0": "2.86.4-4.0.0-beta.40",
+            "@girs/glib-2.0": "2.86.4-4.0.0-beta.40",
+            "@girs/gio-2.0": "2.86.4-4.0.0-beta.40",
+            "@girs/gmodule-2.0": "2.0.0-4.0.0-beta.40",
+            "@girs/cairo-1.0": "1.0.0-4.0.0-beta.40"
+        }
+    }
+}

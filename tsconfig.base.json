@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "target": "ES2023",
+        "lib": ["ES2023"],
+        "strict": true,
+        "skipLibCheck": true,
+        "sourceMap": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true,
+        "verbatimModuleSyntax": true,
+        "erasableSyntaxOnly": true
+    }
+}

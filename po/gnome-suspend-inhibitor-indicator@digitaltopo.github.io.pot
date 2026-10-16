@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-suspend-inhibitor-indicator package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-suspend-inhibitor-indicator 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-16 03:53-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: dist/lib/badge.js:33
+#, javascript-format
+msgid "View %d suspend inhibitor"
+msgid_plural "View %d suspend inhibitors"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dist/lib/badge.js:36
+#, javascript-format
+msgid "View %d suspend inhibitor, the list may be incomplete"
+msgid_plural "View %d suspend inhibitors, the list may be incomplete"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dist/lib/badge.js:39
+msgid "Unable to check suspend inhibitors"
+msgstr ""
+
+#: dist/lib/dialog.js:10 dist/lib/dialog.js:18
+msgid "GNOME session"
+msgstr ""
+
+#: dist/lib/dialog.js:12
+msgid "systemd (weak lock)"
+msgstr ""
+
+#: dist/lib/dialog.js:14
+msgid "systemd"
+msgstr ""
+
+#: dist/lib/dialog.js:18
+msgid "systemd-logind"
+msgstr ""
+
+#: dist/lib/dialog.js:32
+msgid "Suspend Inhibitors"
+msgstr ""
+
+#: dist/lib/dialog.js:48
+msgid "Close"
+msgstr ""
+
+#: dist/lib/dialog.js:58
+msgid "These are currently inhibiting suspend."
+msgstr ""
+
+#: dist/lib/dialog.js:62
+msgid "Nothing is inhibiting suspend right now."
+msgstr ""
+
+#: dist/lib/dialog.js:70
+msgid "Unknown application"
+msgstr ""
+
+#: dist/lib/dialog.js:71
+msgid "No reason given"
+msgstr ""
+
+#: dist/lib/dialog.js:77
+#, javascript-format
+msgid "Could not query %s. The list may be incomplete."
+msgstr ""

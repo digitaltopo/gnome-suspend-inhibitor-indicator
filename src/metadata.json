@@ -1,0 +1,8 @@
+{
+    "uuid": "gnome-suspend-inhibitor-indicator@digitaltopo.github.io",
+    "name": "Gnome Suspend Inhibitors Indicator",
+    "description": "Shows a badge next to Suspend in the power menu when apps or services are inhibiting suspend. Click the badge to see what they are and why.",
+    "shell-version": ["49", "50"],
+    "url": "https://github.com/digitaltopo/gnome-suspend-inhibitor-indicator",
+    "gettext-domain": "gnome-suspend-inhibitor-indicator@digitaltopo.github.io"
+}
