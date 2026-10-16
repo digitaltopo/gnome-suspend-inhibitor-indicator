@@ -6,14 +6,14 @@ A GNOME Shell extension adds an indicator next to **Suspend** in power menu that
 
 The badge follows logind's rules for which locks apply to suspend (systemd 257 and later):
 
-| Source                                                                             | Shown | Why                                                  |
-| ---------------------------------------------------------------------------------- | ----- | ---------------------------------------------------- |
-| GNOME session inhibitor with the suspend flag (browsers, video players, Caffeine…) | Yes   | gnome-session turns these into a logind `block` lock |
-| logind `block` lock on `sleep`, from any user (e.g. `systemd-inhibit`)             | Yes   | Applies to every user, including its owner           |
-| logind `block-weak` lock on `sleep` held by another user                           | Yes   | Applies to everyone except its owner                 |
-| logind `block-weak` lock on `sleep` held by you                                    | No    | logind does not apply it to its owner                |
-| logind `delay` locks                                                               | No    | They only postpone suspend for a few seconds         |
-| Idle-only, logout or shutdown inhibitors                                           | No    | They do not affect suspend                           |
+| Source                                                                   | Shown | Why                                                  |
+| ------------------------------------------------------------------------ | ----- | ---------------------------------------------------- |
+| GNOME session inhibitor with the suspend flag (browsers, video players…) | Yes   | gnome-session turns these into a logind `block` lock |
+| logind `block` lock on `sleep`, from any user (e.g. `systemd-inhibit`)   | Yes   | Applies to every user, including its owner           |
+| logind `block-weak` lock on `sleep` held by another user                 | Yes   | Applies to everyone except its owner                 |
+| logind `block-weak` lock on `sleep` held by you                          | No    | logind does not apply it to its owner                |
+| logind `delay` locks                                                     | No    | They only postpone suspend for a few seconds         |
+| Idle-only (e.g. Caffeine), logout or shutdown inhibitors                 | No    | They do not affect suspend                           |
 
 gnome-session holds a single logind lock ("user session inhibited") on behalf of all of its inhibitors. That lock is hidden, because the apps behind it are listed individually.
 
